@@ -74,7 +74,12 @@ class LoginController extends Controller{
         $session = new SessionControl();
         $base_url = SessionControl::getBaseUrl();
 
+
         try {
+            $email = filter_var($request->get("email"), FILTER_VALIDATE_EMAIL);
+            if(!$email) {
+                throw new Exception("O email está inválido");
+            }
             $sendRequest = $usuarios->create($request);
             if($sendRequest->status == 200) {
                 $usuario = $sendRequest->data;
