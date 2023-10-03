@@ -8,9 +8,22 @@ use Exception;
 
 class LoginController extends Controller{
 
+
+    private $sessionActive;
+
+    public function __construct()
+    {
+        $this->sessionActive = SessionControl::checkSession();
+    }
+
     public function index() {
         $base_url = SessionControl::getBaseUrl();
-        return self::view("auth/login", ["base_url" => $base_url]);
+        return self::view("auth/login", 
+            [
+                "base_url" => $base_url,
+                "sessionActive" => $this->sessionActive
+            ]
+        );
     }
 
     public function login(Request $request) {
@@ -42,14 +55,19 @@ class LoginController extends Controller{
         $session = new SessionControl();
         $base_url = SessionControl::getBaseUrl();
 
-        $session->claseSession();
+        $session->closeSession();
         header("Location: {$base_url}/");
     }
 
     public function create() {
         $session = new SessionControl();
         $base_url = SessionControl::getBaseUrl();
-        return self::view("auth/cadastro", ["base_url" => $base_url]);
+        return self::view("auth/cadastro", 
+            [
+                "base_url" => $base_url,
+                "sessionActive" => $this->sessionActive
+            ]
+        );
     }
     public function store(Request $request) {
         $usuarios = new Usuarios();

@@ -1,5 +1,16 @@
 <!-- /* ----------------- Layout que será renderizado no app.php ----------------- */ -->
-<?php $this->layout('app') ?>
+<?php
+
+use app\auth\SessionControl;
+
+ $this->layout('app') ?>
+
+<?php 
+    $base_url = SessionControl::getBaseUrl();
+    if($this->e($sessionActive) == 200) {
+        header("Location: {$base_url}/");
+    }
+?>
 
 <!-- /* ---------------------- sessão que renderizará os css --------------------- */ -->
 <?php $this->start('css') ?>
