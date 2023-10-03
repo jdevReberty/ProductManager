@@ -1,0 +1,17 @@
+{
+    "name": "digim/projeto01",
+    "autoload": {
+        "psr-4": {
+            "app\\": "app"
+        }
+    },
+    "authors": [
+        {
+            "name": "jdevReberty",
+            "email": "jdev.contato@gmail.com"
+        }
+    ],
+    "require": {
+        "league/plates": "^3.5"
+    }
+}
