@@ -33,7 +33,7 @@ class SessionControl {
         $_SESSION[$index] = $content;
     }
 
-    public function claseSession() : bool|string {
+    public function closeSession() : bool|string {
         try {
             session_start();
             session_destroy();
