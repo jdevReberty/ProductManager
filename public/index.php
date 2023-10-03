@@ -6,7 +6,6 @@ require "../vendor/autoload.php";
 require "../routes/router.php";
 
 try {
-    // $base_url = SessionControl::getBaseUrl();
     $url = parse_url($_SERVER["HTTP_HOST"]);
     $uri = parse_url($_SERVER["REQUEST_URI"])['path'];
 

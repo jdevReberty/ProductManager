@@ -29,7 +29,7 @@ $routes = [
         '/cadastrar' => fn() => load('LoginController', 'create'),
         '/logout' => fn() => load('LoginController', 'logout'),
         '/cadastrar/produto' => fn() => load('ProdutoController', 'index'),
-        '/cadastrar/produto/tipo' => fn() => load('ProdutoController', 'createTipoProduto')
+        '/cadastrar/produto/tipo' => fn() => load('ProdutoController', 'createTipoProduto'),
     ],
     'POST' => [
         '/login/cadastrar' => fn() => load('LoginController', 'store'),

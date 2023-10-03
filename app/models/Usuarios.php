@@ -11,7 +11,7 @@ class Usuarios extends Model {
         parent::__construct();
     }
 
-    public function getUsuarios(string $username = null, string $email = null, $password = null) : array|int {
+    public function getUsuarios(string $username = null, string $email = null, string $password = null) : array|int {
         $usuarios = [];
         if($username != null || $email != null) {
             $sql = "SELECT * FROM usuarios WHERE username = '{$username}' OR email = '{$email}'";
